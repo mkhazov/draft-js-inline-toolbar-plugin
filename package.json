@@ -1,5 +1,5 @@
 {
-  "name": "draft-js-inline-toolbar-plugin-custom-ld",
+  "name": "draft-js-inline-toolbar-plugin",
   "version": "2.0.0-beta9",
   "description": "Toolbar Plugin for DraftJS",
   "author": {
