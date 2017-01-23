@@ -32,7 +32,7 @@
   "dependencies": {
     "decorate-component-with-props": "^1.0.2",
     "draft-js": ">=0.9.1",
-    "draft-js-buttons-custom-ld": "git+https://github.com/tomkelsey/draft-js-buttons.git",
+    "draft-js-buttons": "mkhazov/draft-js-buttons#858f8a16b1d229cb1537a043b431f5b6d790e665",
     "find-with-regex": "^1.0.2",
     "immutable": "~3.7.4",
     "union-class-names": "^1.0.0"
