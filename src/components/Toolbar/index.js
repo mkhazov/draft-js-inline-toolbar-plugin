@@ -40,9 +40,22 @@ export default class Toolbar extends React.Component {
         const relativeParent = getRelativeParent(this.toolbar.parentElement);
         const relativeRect = relativeParent ? relativeParent.getBoundingClientRect() : document.body.getBoundingClientRect();
         const selectionRect = getVisibleSelectionRect(window);
+
+        const toolbarHalfWidth = this.toolbar.clientWidth / 2;
+        const absoluteLeft = selectionRect.left - relativeRect.left;
+        let left = (absoluteLeft >= this.toolbar.clientWidth)
+          ? absoluteLeft + selectionRect.width / 2
+          : toolbarHalfWidth; // do not overflow the left border of the relative parent
+
+        const overflowRight = toolbarHalfWidth - (relativeRect.width - left - selectionRect.width / 2);
+
+        if (overflowRight > 0) {
+          left -= overflowRight; // do not overflow the right border of the relative parent
+        }
+
         position = {
           top: (selectionRect.top - relativeRect.top) - toolbarHeight,
-          left: (selectionRect.left - relativeRect.left) + (selectionRect.width / 2),
+          left,
           transform: 'translate(-50%) scale(1)',
           transition: 'transform 0.15s cubic-bezier(.3,1.2,.2,1)',
         };
